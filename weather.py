@@ -1,19 +1,19 @@
 import csv
 from datetime import datetime
 
-DEGREE_SYBMOL = u"\N{DEGREE SIGN}C"
+DEGREE_SYMBOL = u"\N{DEGREE SIGN}C"
 
 
 def format_temperature(temp):
     """Takes a temperature and returns it in string format with the degrees
-        and celcius symbols.
+        and celsius symbols.
 
     Args:
         temp: A string representing a temperature.
     Returns:
         A string contain the temperature and "degrees celcius."
     """
-    return f"{temp}{DEGREE_SYBMOL}"
+    return f"{temp}{DEGREE_SYMBOL}"
 
 
 def convert_date(iso_string):
