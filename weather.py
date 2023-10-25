@@ -1,30 +1,20 @@
 import csv
 from datetime import datetime
 
-DEGREE_SYMBOL = u"\N{DEGREE SIGN}C"
+DEGREE_SYMBOL = "°C"
 
-
+#this works with manual input, cannot test in unit test yet(will probably get used for the daily summary)
 def format_temperature(temp):
-    """Takes a temperature and returns it in string format with the degrees
-        and celsius symbols.
-
-    Args:
-        temp: A string representing a temperature.
-    Returns:
-        A string contain the temperature and "degrees celcius."
-    """
-    return f"{temp}{DEGREE_SYMBOL}"
+    formatted_temp = str(temp) + DEGREE_SYMBOL
+    print(formatted_temp)
+  
 
 
+#tested working
 def convert_date(iso_string):
-    """Converts and ISO formatted date into a human readable format.
-
-    Args:
-        iso_string: An ISO date string..
-    Returns:
-        A date formatted like: Weekday Date Month Year e.g. Tuesday 06 July 2021
-    """
-    pass
+    converted = datetime.fromisoformat(iso_string) #convert ISO format to date
+    formatted = converted.strftime('%A %d %B %Y') #return date in format of Weekday DD Month YYYY e.g. 
+    return formatted
 
 
 def convert_f_to_c(temp_in_farenheit):
