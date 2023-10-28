@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+from statistics import mean
 
 DEGREE_SYMBOL = "°C"
 
@@ -17,7 +18,7 @@ def convert_date(iso_string):
     return formatted_date
 
 
-
+#Accepts an argument, converts to float, and returns the temp as celsius rounded to 1dp
 def convert_f_to_c(temp_in_farenheit):
     c_temp = ((float(temp_in_farenheit))-32)*5/9
     y = "{:.1f}".format(c_temp)
@@ -28,16 +29,15 @@ def convert_f_to_c(temp_in_farenheit):
         A float representing a temperature in degrees celcius, rounded to 1dp.
     """'''
 
-
+#accepts a list of numbers and provides the mean of the numbers in the list. 
 def calculate_mean(weather_data):
-    """Calculates the mean value from a list of numbers.
+    float_list = []
+    for i in weather_data:
+        float_list.append(float(i))
+    average = mean(float_list)
+    return float(average)
 
-    Args:
-        weather_data: a list of numbers.
-    Returns:
-        A float representing the mean value.
-    """
-    pass
+
 
 
 def load_data_from_csv(csv_file):
@@ -48,7 +48,7 @@ def load_data_from_csv(csv_file):
     
     x = []
     for i in data[1:]:
-            x.append([(i[0]),int(i[1]),int(i[2])])
+        x.append([(i[0]),int(i[1]),int(i[2])])
     return x
  ##Need to handle blank lines
     
@@ -70,7 +70,7 @@ def find_min(weather_data):
     Returns:
         The minium value and it's position in the list.
     """
-    pass
+
 
 
 def find_max(weather_data):
@@ -81,7 +81,7 @@ def find_max(weather_data):
     Returns:
         The maximum value and it's position in the list.
     """
-    pass
+
 
 
 def generate_summary(weather_data):
@@ -92,7 +92,7 @@ def generate_summary(weather_data):
     Returns:
         A string containing the summary information.
     """
-    pass
+
 
 
 def generate_daily_summary(weather_data):
@@ -103,4 +103,3 @@ def generate_daily_summary(weather_data):
     Returns:
         A string containing the summary information.
     """
-    pass
