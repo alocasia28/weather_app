@@ -12,20 +12,21 @@ def format_temperature(temp):
 
 #tested working
 def convert_date(iso_string):
-    converted = datetime.fromisoformat(iso_string) #convert ISO format to date
-    formatted = converted.strftime('%A %d %B %Y') #return date in format of Weekday DD Month YYYY e.g. 
-    return formatted
+    converted_date = datetime.fromisoformat(iso_string) #convert ISO format to date
+    formatted_date = converted_date.strftime('%A %d %B %Y') #return date in format of Weekday DD Month YYYY e.g. Wednesday 25 October 2023
+    return formatted_date
+
 
 
 def convert_f_to_c(temp_in_farenheit):
-    """Converts an temperature from farenheit to celcius.
-
-    Args:
+    c_temp = ((float(temp_in_farenheit))-32)*5/9
+    y = "{:.1f}".format(c_temp)
+    return float(y)
+    '''Args:
         temp_in_farenheit: float representing a temperature.
     Returns:
         A float representing a temperature in degrees celcius, rounded to 1dp.
-    """
-    pass
+    """'''
 
 
 def calculate_mean(weather_data):
@@ -40,14 +41,25 @@ def calculate_mean(weather_data):
 
 
 def load_data_from_csv(csv_file):
-    """Reads a csv file and stores the data in a list.
+    file = open(csv_file,"r")
+    data = list(csv.reader(file,delimiter=","))
+    file.close() 
+    print(data)
+    
+    x = []
+    for i in data[1:]:
+            x.append([(i[0]),int(i[1]),int(i[2])])
+    return x
+ ##Need to handle blank lines
+    
+    
+"""Reads a csv file and stores the data in a list.
 
     Args:
         csv_file: a string representing the file path to a csv file.
     Returns:
         A list of lists, where each sublist is a (non-empty) line in the csv file.
-    """
-    pass
+"""
 
 
 def find_min(weather_data):
