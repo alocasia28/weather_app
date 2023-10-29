@@ -53,24 +53,19 @@ def load_data_from_csv(csv_file):
     return new_list
  ##Need to handle blank lines
     
-    
-"""Reads a csv file and stores the data in a list.
-
-    Args:
-        csv_file: a string representing the file path to a csv file.
-    Returns:
-        A list of lists, where each sublist is a (non-empty) line in the csv file.
-"""
 
 
 def find_min(weather_data):
-    """Calculates the minimum value in a list of numbers.
+   
+    float_list = []
+    for i in weather_data:
+        #nested loop to check for duplicates 
+        #conditional required for blanks
+        float_list.append(float(i))
+    min_value = min(float_list)
+    index = float_list.index(min_value)
 
-    Args:
-        weather_data: A list of numbers.
-    Returns:
-        The minium value and it's position in the list.
-    """
+    return float(min_value),index
 
 
 
