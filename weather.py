@@ -42,14 +42,15 @@ def calculate_mean(weather_data):
 
 def load_data_from_csv(csv_file):
     file = open(csv_file,"r")
+    next(file)
     data = list(csv.reader(file,delimiter=","))
     file.close() 
-    print(data)
     
-    x = []
-    for i in data[1:]:
-        x.append([(i[0]),int(i[1]),int(i[2])])
-    return x
+    new_list = []
+    for i in data:
+        if (i):
+            new_list.append([(i[0]),int(i[1]),int(i[2])])
+    return new_list
  ##Need to handle blank lines
     
     

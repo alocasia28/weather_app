@@ -10,22 +10,20 @@ from statistics import mean
         A float representing the mean value.
     """
 
-
-
- 
-list = [51.0, 58.2, 59.9, 52.4, 52.1, 48.4, 47.8, 53.43]
-
-def calculate_mean(weather_data):
-    int_list = []
-    for i in weather_data:
-        int_list.append(float(i))
-    average = mean(int_list)
-    print(float(average))
+link = "/Users/alisha/Coding/weather_app/tests/data/example_two.csv"
+def load_data_from_csv(csv_file):
+    file = open(csv_file,"r")
+    next(file)
+    data = list(csv.reader(file,delimiter=","))
+    file.close() 
     
+    new_list = []
+    for i in data:
+        if (i):
+            new_list.append([(i[0]),int(i[1]),int(i[2])])
+    print(new_list)
+load_data_from_csv(link)
 
-    #print(x)
-
-calculate_mean(list)
 
 
     
