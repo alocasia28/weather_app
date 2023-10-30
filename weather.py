@@ -59,12 +59,11 @@ def find_min(weather_data):
    
     float_list = []
     for i in weather_data:
-        #nested loop to check for duplicates 
-        #conditional required for blanks
-        float_list.append(float(i))
+        if (i):
+            float_list.append(float(i))
     min_value = min(float_list)
+    
     index = float_list.index(min_value)
-
     return float(min_value),index
 
 
