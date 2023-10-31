@@ -8,9 +8,8 @@ def find_min(weather_data):
     for i in weather_data:
         float_list.append(float(i))
     min_value = min(float_list)
-    index = float_list.index(min_value)
-
+    index = len(float_list) - list(reversed(float_list)).index(min_value)-1
+    
     print(float(min_value),index)
 
-find_min([10.4, 14.5, 12.9, 8.9, 10.5, 11.7])
-
+find_min([49, 57, 56, 55, 53, 49])

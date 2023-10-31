@@ -59,12 +59,14 @@ def find_min(weather_data):
    
     float_list = []
     for i in weather_data:
-        if (i):
+        if i:
             float_list.append(float(i))
-    min_value = min(float_list)
+
+        min_value = min(float_list,default = 0) 
+        index = len(float_list) - list(reversed(float_list)).index(min_value)-1
+        
     
-    index = float_list.index(min_value)
-    return float(min_value),index
+    return (float(min_value),index)
 
 
 
