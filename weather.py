@@ -50,7 +50,7 @@ def calculate_mean(weather_data):
     for i in weather_data:
         float_list.append(float(i))
     average = sum(float_list)/len(float_list)
-    output = float(average) 
+    output =(float(average))
     return output
 
 
@@ -98,14 +98,28 @@ def find_max(weather_data):
 
 
 def generate_summary(weather_data):
+    date_list = []
+    min_list = []
+    max_list = []
     for i in weather_data:
-        if i != False:
-            date = convert_date(i[0])
-            min = convert_f_to_c(i[1])
-            max = convert_f_to_c(i[2])
+        date = convert_date(i[0]) #converts each iteration of date from f to c which is in index location 0
+        min_temp = convert_f_to_c(i[1]) #converts each iteration of min temp from f to cwhich is in index location 1
+        max_temp = convert_f_to_c(i[2]) #converts each iteration of max temp from f to c which is in index location 2
 
-    
+        date_list.append(date) #creates a list of dates
+        min_list.append(float(min_temp)) #creates a list of min temps
+        max_list.append(max_temp) #creates a list of max temps
 
+    avg_min = calculate_mean(min_list)
+    avg_max = calculate_mean(max_list)
+
+    min_date = min_list.index(min(min_list))
+    max_date = max_list.index(max(max_list))
+
+      
+    output = (f'{len(date_list)} Day Overview\n  The lowest temperature will be {min(min_list)}{DEGREE_SYMBOL}, \
+and will occur on {date_list[min_date]}.\n  The highest temperature will be {max(max_list)}{DEGREE_SYMBOL}, and will occur on {date_list[max_date]}.\n  The average low this week is {avg_min}{DEGREE_SYMBOL}.\n  The average high this week is {avg_max}{DEGREE_SYMBOL}.\n')
+    return output
     
     
 """Outputs a summary for the given weather data.
