@@ -110,15 +110,18 @@ def generate_summary(weather_data):
         min_list.append(float(min_temp)) #creates a list of min temps
         max_list.append(max_temp) #creates a list of max temps
 
-    avg_min = calculate_mean(min_list)
-    avg_max = calculate_mean(max_list)
+    avg_min = round(calculate_mean(min_list),1)
+    avg_max = round(calculate_mean(max_list),1)
 
     min_date = min_list.index(min(min_list))
     max_date = max_list.index(max(max_list))
 
+    min_value = round((min(min_list)),1)
       
-    output = (f'{len(date_list)} Day Overview\n  The lowest temperature will be {min(min_list)}{DEGREE_SYMBOL}, \
-and will occur on {date_list[min_date]}.\n  The highest temperature will be {max(max_list)}{DEGREE_SYMBOL}, and will occur on {date_list[max_date]}.\n  The average low this week is {avg_min}{DEGREE_SYMBOL}.\n  The average high this week is {avg_max}{DEGREE_SYMBOL}.\n')
+    output = (f'{len(date_list)} Day Overview\n  The lowest temperature will be {min_value}{DEGREE_SYMBOL}, \
+and will occur on {date_list[min_date]}.\n  The highest temperature will be {max(max_list)}{DEGREE_SYMBOL}, and will occur on {date_list[max_date]}.\n  \
+The average low this week is {avg_min}{DEGREE_SYMBOL}.\n  \
+The average high this week is {avg_max}{DEGREE_SYMBOL}.\n')
     return output
     
     
