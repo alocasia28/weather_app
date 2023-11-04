@@ -159,5 +159,6 @@ def generate_daily_summary(weather_data):
             x = f"---- {date} ----\n  Minimum Temperature: {min}{DEGREE_SYMBOL}\n  Maximum Temperature: {max}{DEGREE_SYMBOL}\n\n"
             output = output + x
     return output
+#adding in this comment to try to merge changes into main through cli. 
     
 
