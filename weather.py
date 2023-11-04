@@ -64,36 +64,32 @@ def find_min(weather_data):
    
     float_list = []
     for i in weather_data:
-        try:
-            float_list.append(float(i))
-        
-            min_value = min(float_list,default = 0) 
-            index = len(float_list) - list(reversed(float_list)).index(min_value)-1
-        except ValueError:
-            print ("fuhged about it")
+        float_list.append(float(i))
+        min_value = min(float_list,default = 0) 
+        index = len(float_list) - list(reversed(float_list)).index(min_value)-1
     
-    try: 
+    if float_list == []:
+        return (())
+    else:
         return (float(min_value),index)
-    except UnboundLocalError:
-        return ()
-
 
 
 def find_max(weather_data):
     float_list = []
     for i in weather_data:
-        try:
-            float_list.append(float(i))
+        float_list.append(float(i))
         
-            max_value = max(float_list,default = 0) 
-            index = len(float_list) - list(reversed(float_list)).index(max_value)-1
-        except ValueError:
-            return ()
-    
-    try: 
+        max_value = max(float_list,default = 0) 
+        index = len(float_list) - list(reversed(float_list)).index(max_value)-1
+    if float_list == []:
+        return (())
+    else:
         return (float(max_value),index)
-    except UnboundLocalError:
-        return ()
+   # this was my cheeky way of doing it before. 
+   # try: 
+    #    return (float(max_value),index)
+    #except UnboundLocalError:
+    #    return ()
 
 
 
@@ -163,11 +159,6 @@ def generate_daily_summary(weather_data):
             x = f"---- {date} ----\n  Minimum Temperature: {min}{DEGREE_SYMBOL}\n  Maximum Temperature: {max}{DEGREE_SYMBOL}\n\n"
             output = output + x
     return output
-    
+#adding in this comment to try to merge changes into main through cli. 
     
 
-
-    
-    #date in format: ---- Saturday 03 July 2021 ----
-    #temp in format:Minimum Temperature: 13.9°C
-    #Maximum Temperature: 20.0°C
