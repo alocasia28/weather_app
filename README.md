@@ -13,4 +13,4 @@ The application has the following features:
 
 
 ### Testing Results
-![Test Results](screenshots/Screenshot 2023-11-04 at 12.44.29 pm.png)
+![Test Results](screenshots/Test_Results.png)
